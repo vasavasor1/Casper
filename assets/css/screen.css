@@ -18,6 +18,7 @@ production stylesheet in assets/built/screen.css
   7.3. Comments
   7.4. Related Posts
   7.5. Koenig Styles
+  7.6. TOC
 8.  Author Template
 9.  Error Template
 10. Subscribe Overlay
@@ -944,7 +945,8 @@ make sure this only happens on large viewports / desktop-ish devices.
 .post-full-header {
     position: relative;
     margin: 0 auto;
-    padding: 70px 170px 50px;
+    /* padding: 70px 170px 50px; */
+    padding: 70px 0px 50px;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
 }
@@ -1024,9 +1026,12 @@ make sure this only happens on large viewports / desktop-ish devices.
 }
 
 .post-full-content {
+    display: grid;
+    grid-template-columns: 1fr 0.2fr; 
     position: relative;
     margin: 0 auto;
-    padding: 0 170px 6vw;
+    padding: 0 0px 6vw;
+    /* padding: 0 170px 6vw; */
     min-height: 230px;
     font-family: "Open Sans", sans-serif;
     font-size: 2.0rem;
@@ -1042,14 +1047,28 @@ make sure this only happens on large viewports / desktop-ish devices.
 @media (max-width: 800px) {
     .post-full-content {
         padding: 0 5vw;
-        font-size: 1.8rem;
+        font-size: 1.8rem; 
+        grid-template-columns: 1fr; 
     }
+    .post-content {
+        grid-row: 2;
+    }
+    .toc-container { 
+        grid-row: 1;
+    } 
 }
 @media (max-width: 500px) {
     .post-full-custom-excerpt {
         font-size: 1.9rem;
         line-height: 1.5em;
+        grid-template-columns: 1fr; 
     }
+    .post-content {
+        grid-row: 2;
+    }
+    .toc-container { 
+        grid-row: 1;
+    }  
 }
 
 .no-image .post-full-content {
@@ -2369,6 +2388,55 @@ Usage (In Ghost editor):
         order: 2;
     }
 }
+
+/* 7.5. TOC https://ghost.org/tutorials/adding-a-table-of-contents/
+/* ---------------------------------------------------------- */
+.post-content h2,
+.post-content h3 {
+	outline: none;
+}
+body {
+	overflow: visible;
+}
+ 
+.toc-container {
+    order: 1; 
+}
+.toc-container .toc {
+	position: sticky;
+	top: 70px;
+	min-width: 260px;
+	font-family: "Bree Serif", serif;
+	font-size: 1.6rem;
+	line-height: 1.6em;
+	padding: 0 0.8em;
+}
+.is-active-link::before {
+	background-color: #c90c71;
+}
+ol.toc-list {
+	margin: 0;
+}
+.kg-gallery-card,
+.kg-width-wide,
+.kg-width-full {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.kg-gallery-card > *,
+.kg-width-wide > *,
+.kg-width-full > *,
+figure.kg-width-full img {
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+.post-full-content pre {
+    max-width: 0;
+} 
+
 
 /* 8. Author Template
 /* ---------------------------------------------------------- */

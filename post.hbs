@@ -85,10 +85,8 @@ into the {body} of the default.hbs template --}}
                 </div>
             </header>
 
-            {{#if feature_image}}
+            {{!-- {{#if feature_image}}
             <figure class="post-full-image">
-                {{!-- This is a responsive image, it loads different sizes depending on device
-                https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433 --}}
                 <img
                     srcset="{{img_url feature_image size="s"}} 300w,
                             {{img_url feature_image size="m"}} 600w,
@@ -101,12 +99,18 @@ into the {body} of the default.hbs template --}}
                     alt="{{title}}"
                 />
             </figure>
-            {{/if}}
+            {{/if}} --}}
 
             <section class="post-full-content">
+
+                <aside class="toc-container">
+                    <div class="toc"></div>
+                </aside>
+
                 <div class="post-content">
                     {{content}}
                 </div>
+
             </section>
 
             {{!-- Email subscribe form at the bottom of the page --}}
