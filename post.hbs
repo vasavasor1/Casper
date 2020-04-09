@@ -50,11 +50,11 @@ into the {body} of the default.hbs template --}}
                                         <div class="bio">
                                             <h2>{{name}}</h2>
                                             <p>{{bio}}</p>
-                                            <p><a href="{{url}}">More posts</a> by {{name}}.</p>
+                                            <p><a href="{{url}}">Mais textos</a> de {{name}}.</p>
                                         </div>
                                         {{else}}
                                         <h2>{{name}}</h2>
-                                        <p>Read <a href="{{url}}">more posts</a> by this author.</p>
+                                        <p>Leia <a href="{{url}}">mais textos</a> desse autor.</p>
                                         {{/if}}
                                     </div>
                                 </div>
@@ -74,8 +74,8 @@ into the {body} of the default.hbs template --}}
                         <section class="post-full-byline-meta">
                             <h4 class="author-name">{{authors}}</h4>
                             <div class="byline-meta-content">
-                                <time class="byline-meta-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time>
-                                <span class="byline-reading-time"><span class="bull">&bull;</span> {{reading_time}}</span>
+                                <time class="byline-meta-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD/MM/YYYY"}}</time>
+                                <span class="byline-reading-time"><span class="bull">&bull;</span> {{reading_time minute="leitura de 1 min" minutes="leitura de % min"}}</span>
                             </div>
                         </section>
 
@@ -139,7 +139,7 @@ into the {body} of the default.hbs template --}}
                 <article class="read-next-card">
                     <header class="read-next-card-header">
                         {{#../primary_tag}}
-                        <h3><span>More in</span> <a href="{{url}}">{{name}}</a></h3>
+                        <h3><span>Mais de</span> <a href="{{url}}">{{name}}</a></h3>
                         {{/../primary_tag}}
                     </header>
                     <div class="read-next-card-content">
@@ -148,8 +148,8 @@ into the {body} of the default.hbs template --}}
                             <li>
                                 <h4><a href="{{url}}">{{title}}</a></h4>
                                 <div class="read-next-card-meta">
-                                    <p><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time> –
-                                        {{reading_time}}</p>
+                                    <p><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD/MM/YYYY"}}</time> –
+                                        {{reading_time minute="leitura de 1 min" minutes="leitura de % min"}}</p>
                                 </div>
                             </li>
                             {{/foreach}}
